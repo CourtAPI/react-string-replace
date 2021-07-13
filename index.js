@@ -64,6 +64,8 @@ module.exports = function reactStringReplace(source, match, fn) {
     if (React.isValidElement(x)) {
       const { props } = x;
       const children = props.children;
+      if ( ! children ) return x;
+
       delete props.children;
       const replacedChildren = reactStringReplace(children, match, fn);
 
