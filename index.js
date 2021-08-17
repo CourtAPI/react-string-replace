@@ -4,7 +4,7 @@ var escapeRegExp = require('lodash/escapeRegExp');
 var isString = require('lodash/isString');
 var flatten = require('lodash/flatten');
 var React = require('react');
-
+import 'react-app-polyfill/ie11';
 /**
  * Given a string, replace every substring that is matched by the `match` regex
  * with the result of calling `fn` on matched substring. The result will be an
@@ -57,7 +57,7 @@ function replaceString(str, match, fn) {
   return result;
 }
 
-module.exports = function reactStringReplace(source, match, fn) {
+function reactStringReplace(source, match, fn) {
   if (!Array.isArray(source)) source = [source];
 
   return flatten(source.map(function(x) {
@@ -74,4 +74,6 @@ module.exports = function reactStringReplace(source, match, fn) {
 
     return isString(x) ? replaceString(x, match, fn) : x;
   }));
-};
+}
+
+export default reactStringReplace;

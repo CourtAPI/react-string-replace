@@ -33,7 +33,8 @@
   ],
   "dependencies": {
     "lodash": "^4.17.4",
-    "react": "^16.8.6 || ^17"
+    "react": "^16.8.6 || ^17",
+    "react-app-polyfill": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.23.0",
